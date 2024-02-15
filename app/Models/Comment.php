@@ -16,6 +16,13 @@ class Comment extends Model
         'comment'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'status'
+    ];
+
     /**
      * Get the user that owns the Comment
      *

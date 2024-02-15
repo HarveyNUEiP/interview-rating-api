@@ -21,8 +21,12 @@ class CommentFactory extends Factory
         return [
             'company_id' => Company::all()->random()->id,
             'user_id' => User::all()->random()->id,
-            'interview_review' => fake()->sentence(),
+            'interview_review' => fake()->realText(),
             'rating' => fake()->numberBetween(1, 10),
+            'created_at' => fake()->dateTimeThisYear(),
+            'updated_at' => function (array $attributes) {
+                return fake()->dateTimeBetween($attributes['created_at'], 'now');
+            },
             'deleted_at' => null,
             'status' => 1,
         ];

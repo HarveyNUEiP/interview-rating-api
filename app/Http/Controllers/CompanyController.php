@@ -41,7 +41,7 @@ class CompanyController extends Controller
             }
         }
 
-        return new CompanyResource(
+        return CompanyResource::collection(
             $query->withAvg('comments', 'rating')->paginate(10)
         );
     }

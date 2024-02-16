@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,3 +28,4 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 
 Route::apiResource('companies', CompanyController::class);
+Route::apiResource('comments', CommentController::class);
